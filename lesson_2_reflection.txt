@@ -1,0 +1,21 @@
+Udacity
+How to Use Git and GitHub
+Lesson 2
+
+What Makes a Repository a Respository?
+- A repository saves meta-data on the whole history of a set of files. But where is it stored?
+- It is stored in a hidden folder that will not show up in most folder explorers (it has a . in front of it)
+- Hidden folders are only hidden because they contain data taht users do not need to see most of the time
+- ".git"
+- To see these files in a directory through the command line, type ls -a
+- When you clone a repository, all that data is copies
+
+
+Initializing a Repository
+- Run "git init" to initialize a new repository
+- This will create a .git file in a directory, but it will not contain any commits
+- 
+
+Examining the New Repository
+- "git status" shows which files have changed since the last commit
+- 
