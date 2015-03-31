@@ -1,0 +1,142 @@
+Udacity
+How to Use Git and GitHub
+Lesson 1
+Reflections & Notes
+
+
+How to Compare two files in the command line:
+- FC + file + file
+
+How to open file on the command line:
+- start + "file"
+	or
+- open + "file"
+
+
+Reflection 1
+How did viewing a diff between two versions of a file help you see the bug that was introduced?
+- It helps you to see the differences between two files
+- Helps differentiate between intentional and unintentional changes
+- Don't have to go through entire code
+- Can compare with previous working code
+
+
+Where to Versions come From?
+- Saving manual copies is a type ofversion control
+- Dropbox, Google Docs, Wikipeida all do this as well
+
+Reflection 2
+How could having easy access to the entire history of a file make you a more efficient programmer in the long term?
+- Not constantly organizing multiple files
+- Can try something but easily find you way back to working code
+- Finding bugs
+
+
+Commits
+- These are the check points where you save different versions
+- The building blocks of Git
+
+Terms:
+- Version Control - any systematic saving of versions of content
+- Types of Version Control
+	Manual Saving
+	Dropbox
+	Google Docs
+	Wikipedia
+	Git
+	SVN
+- Commit - a component of Git that are check points where you save different versions
+
+
+Looking at History using Git
+- dir $ git log --> shows you all the commits of a given fill
+- dir $ git log --stat --> gives you more detailed log
+- git diff --> can be used to see the difference between commits
+- file $ git diff + commitID# + commitID#
+- With Git, differences are colorized
+
+How often to Commit?
+A good rule of thumb is to make one commit per logical change
+Each commit should have one clear, logical purpose
+- For example, if you fixed a typo, then fixed a bug in a separate part of the file
+- you should use one commit for each change since they are logically separate. 
+- If you do this, each commit will have one purpose that can be easily understood.
+
+
+Reflection 3: Manual Commits
+"What do you think are the pros and cons of manually choosing when to create a commit, like you do in Git, vs having versions automatically saved, like Google docs does?"
+--> Two key advantages. One is that when you go back, there is a logical organization to your commits, making it easier to find things
+- Also, avoids saving an illogical times, such as the middle of a line
+
+
+Tracking Across Files
+- In many programming situations, you will have programs that span multiple files
+- Such as having a function in one file and arguments in another.
+- Often, when you want to make a change, it may involve multiple files
+- 
+
+Respository in Git
+- When you make a commit, you save versions of all files within a repository
+- A commit will be a snapshot of all files at that point
+- Tracks all the files as a cohesive unit
+
+Reflection 4: Multi-File Commits
+Why do you think some version control systems, like Git, allow saving multiple files in one commit, while others, like Google Docs, treat each file separately?
+- WOuld assume this is a specific concern of programming compared to other uses
+- Not common to have files that are actually interdepedent for their entire functioning in other situations.
+
+
+
+Cloning and Exploring the Repo
+- Git allows you to not only download all files, but to download the entire history of a repository
+- Uses commond 'git clone + url of repository
+- Example from class: git clone https://github.com/udacity/asteroids.git
+
+
+Getting Coloroed Output
+run: git config --global color.ui auto
+
+
+Exiting Git Log
+Type q
+
+
+Copying and Pasting from the Command Line
+- The default way to copy/paste in Git Bash is by using the menu (accessed by going to the top left) to "mark" to select what you want to copy and then use the menu again to paste.
+- This gets inefficient pretty quickly, so it's a good idea to set up QuickEdit mode to make copying and pasting much faster.  To do this, go to Menu->Properties and in the Options tab select QuickEdit Mode.
+
+
+Reflection 5:
+"How can you use the commands git log and git diff to view the history of files?"
+- I picture this being particularly useful when transforming variables or re-organizing data
+- In terms of coding in Python, it would seem far more useful.
+
+
+Git Checkout
+- Restores a previous version
+- Resets all your files to the time that commit was made
+- Type: git check + commitID
+- Git will tell you that you are in 'Detatched HEAD' State. 
+-- This means that you are not working with the most recent version
+-- Thus, if you make changes, you are creating a new branch
+-- This is why it gives you a warning. If you do not make any changes
+	then you can just check the program.
+- After you check an old version, the log will then place the old version at the top of the Git Log.
+- If you go back to an old version but want to return the program tot he lastest version, you will need to restor it with git checkout
+
+
+Set up a Git Workspace
+- Chance colors using "Defaults"
+- Tab Completion
+	- Save this file (https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash) in home directory with name git-complete.bash
+- Text Editor Prompt
+	- Save this file (https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash) in home directory with name git-prompt.sh
+- Profile configuration
+	- Save profile used in course (https://lh5.ggpht.com/hJcAFWEZUQKz9x8A-YT6-mH-vKd4PH4uOwqbmCoahSUAYdyXAN2IvutaPD80jrRa9AGuG4AFJ0QAajpeUEs=s15#w=30&h=30) and move it into home directory.
+- Make Sublime default editor
+	- git config --global core.editor "'C:/Program Files/Sublime 		Text 2/sublime_text.exe' -n -w"
+	- git config --global push.default upstream
+	- git config --global merge.conflictstyle diff3
+- See full instructions: https://www.udacity.com/course/viewer#!/c-ud775/l-2980038599/m-3341718587
+
+
