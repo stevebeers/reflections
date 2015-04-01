@@ -19,3 +19,110 @@ Initializing a Repository
 Examining the New Repository
 - "git status" shows which files have changed since the last commit
 - 
+
+Staging Area: Choosing What Changes to Commit
+- Before making a commit, you choose which changes to commit by choosing which files will be moved into the 'staging area'
+- The staging area is an intermediate location between the directory and the commited repository
+- You use 'git add' 
+- If you accidentally add a file to the staging area, you can remove it using git reset.
+
+
+Commiting Changes
+- Run "git commit"
+- It will open up your chosen text editor and you can write your commit message
+
+Git Diff for Staging Area
+- Run "git diff" with no arguments. This will show changes that have not been staged yet.
+- If there are no unstaged changes, it will show nothing
+- Run "git diff --staged". This will show the differences between files in the staging area and the most recent commit
+- To complete discard changes made in the working directory, run "git reset --hard"
+	- But with caution: unlike other commands, there is no getting these changes back
+
+
+Branches
+- So far, each commit has been based on a linear history
+- Branches allow you to try new features. 
+- Branches can save you time. If you make a change in some old code, it will change it for all the branched versions prior to the branching
+-  In Git, you can label branches
+- "Master" is the most recent linear commit
+- "Detached Head" is when you are working on a branch without a name
+- You can also combine two branches later on, through merging (will be covered later)
+
+Making a Branch
+- We will update asteroids with a second branch in which we make the game easier
+- Run "git branch" to see current branches
+- Run "git branch + name" to create new branch
+- A "*" in "git branch" shows the version that is currently checked out
+- Run "git checkout + branch" to switch to another branch
+
+
+Branches for Collaboration
+- When multiple people want to work on the same project, they can each use different branches
+- This way, they can work without worrying about someone else making changes.
+- Later, they can merge their changes
+- "Remote Branch" - a branch created by another user
+- You can visualize the commit history by runing "git log --graph --oneline + branches"
+
+
+Reachability
+- "git log" does not show you every commit. How does it choose?
+- Each commit knows about its parent commit
+- It will follow a straight line from current commmit to oldest commit without a parent
+- It will only includes commits that are reachable from checked out commit
+- It a commit is unreachable, not a part of a labelled branch, it won't show up in any "git log" and could be lost if you don't know the number.
+
+
+Detached HEAD Revisited
+- When you branch off from the master branch, the next commit is not part of a branch and is not reachable
+- In order to make it a new branch, run "git checkout -b new_branch_name"
+- Or you can run two commands, "git branch new_branch_name" and then "git checkout new_branch_name"
+- Now you have a new head, based on this new commit
+
+
+Combining Simple Files
+- If changes have been made along two branches, you may want to combine them
+- Esecially useful if multiple people are editing a file
+- The parent of the new commit is both merged branches
+- It is involves the master branch, then the practice is to make the new commit the master branch and say that the other branch was merged into the master branch.
+- What is the branch label for the new commit? It will be whichever branch is checked out at the time of the merger.
+- All commits in the two branches will appear in the log and will be sorted by data and time. It will make it appear as if the changes are interweaved.
+- Once merged, you can delete the other branch, which is just a label for all the commits that have been merged.
+
+Merging on the Command Line
+- Run "git merge master branch2"
+- This is create a new commit & message
+- The merge commit will now appear in the log
+
+Git Show
+- Run "git show" to see the changes made in a commit as compared to its parent commit, even if you do not know which previous commit was its parent commit.
+- This is useful after a merge, where commits from multiple users are interweaved
+
+Delete a Branch
+- Run "git branch -d branch_name"
+- This will delete the branch label. The commits in the branch can still be found, as long as they are reachable through another branch.
+
+
+Merging Conflicts
+- Can we always merge automatically?
+- Git caputres catches if there are conflicting changes, but cannot known which one to choose.
+- It does this by pointing out when Git is making changes in the same general area
+- Git will be asking users whenever this is ambiguity, based on proximity
+
+Resolving Merge Conflicts
+- When there is a conflict, Git is give you a conflict message specifying which file has a conflict
+- The conflicts will be marked in the file abut a series of '<' signs.
+- The markup lines divide the conflict section into three
+	1. Head: Current Code in Checked Out Branch
+	2. Common Ancestor: original version that both branches modified.
+	3. The Other Branch
+- It will be up to you to figure out what the changes were and how to resolve them.
+- Once you go into the code and make the changes to resolve the conflict, you need to tell Git the conflict is now resolved
+- Run "git status", then add the resolved file to the staging area (git add + file)
+- Git will then tell you to commit the resolved file in order to complete the merge
+- Git does records the merge as one commit, it does not separate the conflict resolution into a separate step
+- Git Log will note which files were involved in a conflict resolution
+- 
+- 
+- 
+- 
+- 
