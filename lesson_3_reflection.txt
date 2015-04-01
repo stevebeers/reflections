@@ -1,4 +1,32 @@
 Udacity
 How to Use Git and GitHub
-Lesson 3
+Lesson 3: Intro to GitHub
+
+
+Intro to GitHub
+
+
+Cache Your Password
+- So that you don't have to constantly type your password in the command line
+- Run "git config --global credential.helper"
+- https://help.github.com/articles/caching-your-github-password-in-git/
+
+Syncing Repositories
+- Using GitHub to sync your committed repositories
+- You get to choose when to sync. This is important, because it allows you to make multiple commits before they become public.
+- The first step is creating an empty repository on GitHub
+- This creates a 'remote repository', from which you can 'push' or 'pull' data.
+- When you 'push', you do it by branch
+- When you push a branch, Git will start with the tip and send each commit that is reachable from the tip that are not already on the GitHub repository
+- 
+
+Adding a Remote
+- First, create a new repository on GitHub
+- Then create a remote through the command line. Run "git remote" to see all current remotes. "git remote -v" for details
+- To create a remote, run "git remote add + name + url of repository on GitHub"
+- If you only have one remote in a repository, it is standard to name it origin
+- To send changes to the remote, run "git push + remte + local branch"
+
+Editing Files on GitHub
+- You can also edit files on GitHub itself
 
